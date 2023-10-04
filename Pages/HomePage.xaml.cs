@@ -32,7 +32,7 @@ namespace StockroomBinar.Pages
             var objA = Connect.bd.Deliveries.Where(p => p.ID != 0).Count(); //проверяем данные о поставках для отображения
             if(objA==0)
             {
-                  ListViewItem lv = new ListViewItem();
+                ListViewItem lv = new ListViewItem();
                 lv.Content = "Данные о поставках отсутствуют";
                 DeliversView.Items.Add(lv);
             }

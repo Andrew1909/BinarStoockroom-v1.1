@@ -43,7 +43,12 @@
             </DataGrid>
             <Label Content=" "/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Cursor="">
-                <Button x:Name="AddPlatic" Width="155" Click="AddPlatic_Click" Content="Приемка пластика" Cursor="Hand" Background="#202225"/>
+                <Button x:Name="AddPlatic" Width="195" Click="AddPlatic_Click" Cursor="Hand" Background="#202225" Height="35">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../Image/plusplast.png" Margin="0,0,10,0"/>
+                        <TextBlock Text="Приемка пластика" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
                 <!--<Button x:Name="AddNewPlatic" Width="220" Click="AddPlatic_Click" Content="Редактировать данные" Foreground="White" Style="{DynamicResource MaterialDesignFlatButton}"/>-->
             </StackPanel>
         </StackPanel>

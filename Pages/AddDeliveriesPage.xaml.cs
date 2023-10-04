@@ -121,9 +121,7 @@ namespace StockroomBinar.Pages
                 }
                 AddNececeryCount.Text = string.Empty;
                 AddNameDitalies.SelectedIndex = 0;
-
             }
-
         }
 
         private void AddCodeDitales_SelectionChanged(object sender, RoutedEventArgs e)

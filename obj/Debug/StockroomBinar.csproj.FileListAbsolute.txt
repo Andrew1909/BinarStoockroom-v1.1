@@ -173,3 +173,5 @@ C:\Users\Ryzhov\Desktop\StockroomBinar — копия\obj\Debug\DialogWindow\Add
 C:\Users\Ryzhov\Desktop\StockroomBinar — копия\obj\Debug\DialogWindow\AddDataForCalculatorWindow.baml
 C:\Users\Ryzhov\Desktop\StockroomBinar — копия\obj\Debug\Pages\EditPlasticProductPage.g.cs
 C:\Users\Ryzhov\Desktop\StockroomBinar — копия\obj\Debug\Pages\EditPlasticProductPage.baml
+C:\Users\Ryzhov\Desktop\StockroomBinar — копия\obj\Debug\Pages\EngravingProfilPage.g.cs
+C:\Users\Ryzhov\Desktop\StockroomBinar — копия\obj\Debug\Pages\EngravingProfilPage.baml

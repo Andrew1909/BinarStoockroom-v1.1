@@ -68,8 +68,6 @@ namespace StockroomBinar.Pages
             }
             AddColordNamePlastic.SelectedIndex = 0;
             AddNameDitalies.SelectedIndex = 0;
-
-
             Plus.Visibility = Visibility.Hidden;
             NextTextSupports.Visibility = Visibility.Hidden;
             EngravingText.Visibility = Visibility.Hidden;
@@ -84,7 +82,6 @@ namespace StockroomBinar.Pages
                 var objA = Connect.bd.IDPlasticProducts.Where(p => p.ID != 0).Count();
                 if (check == 0)
                 {
-
                     idPlasticProducts.NameProduct = DitalesWindow.NewDitales.ToString();
                     idPlasticProducts.IDInside = objA + 1;
                     Connect.bd.IDPlasticProducts.Add(idPlasticProducts);
@@ -104,7 +101,6 @@ namespace StockroomBinar.Pages
             }
             else
             {
-
                 int index1 = AddNameDitalies.SelectedIndex;
                 if (AddNameDitalies.SelectedIndex == index1)
                 {
@@ -126,9 +122,6 @@ namespace StockroomBinar.Pages
                         Manufactr = a1.Manufacturer;
                         TypePlast = a1.PlasticType;
                         IDPlast = index1;
-
-
-
                     }
                 }
 
@@ -144,8 +137,6 @@ namespace StockroomBinar.Pages
                         //есть ли такая деталь с той же датой производства
 
                         var objB = Connect.bd.PlasticProducts.First(p => p.ProductTypeID == NameDitaliesID && p.ColorName == ColorNamePlast && p.ManufacturerPlasticPrint == Manufactr && p.TypePlasticPrint == TypePlast);
-
-
                         if (CountEngraving != 0)
                         {
                             EngraveringFunc(objB.ID, 1);

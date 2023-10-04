@@ -27,28 +27,28 @@
                 <Label Content=" "/>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Вес детали "/>
-                        <TextBlock x:Name="NameDitales"/>
-                        <TextBlock Text="="/>
-                        <TextBlock x:Name="WeightOneDitales"/>
+                        <TextBlock Text="Вес детали " FontSize="15"/>
+                        <TextBlock x:Name="NameDitales" FontSize="15"/>
+                        <TextBlock Text="=" FontSize="15"/>
+                        <TextBlock x:Name="WeightOneDitales" FontSize="15"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Вес поддержек "/>
-                        <TextBlock Text="="/>
-                        <TextBlock x:Name="WeightSupports"/>
+                        <TextBlock Text="Вес поддержек " FontSize="15"/>
+                        <TextBlock Text="=" FontSize="15"/>
+                        <TextBlock x:Name="WeightSupports" FontSize="15"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text=" Необходимое кол-во="/>
-                        <TextBlock x:Name="Count"/>
+                        <TextBlock Text="Необходимое кол-во=" FontSize="15"/>
+                        <TextBlock x:Name="Count" FontSize="15"/>
                     </StackPanel>
                     <Line HorizontalAlignment="Left"  StrokeThickness="1" X1="0" X2="230" Y1="10" Y2="10" Stroke="Black"/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Потребуется: " FontSize="15"/>
-                        <TextBlock x:Name="SummWeght" FontSize="15" TextDecorations="Underline"/>
+                        <TextBlock Text="Потребуется: " FontSize="20"/>
+                        <TextBlock x:Name="SummWeght" FontSize="20" TextDecorations="Underline"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="или " FontSize="15"/>
-                        <TextBlock x:Name="CoilsCount" FontSize="15" TextDecorations="Underline"/>
+                        <TextBlock Text="или " FontSize="20"/>
+                        <TextBlock x:Name="CoilsCount" FontSize="20" TextDecorations="Underline"/>
                     </StackPanel>
 
                 </StackPanel>

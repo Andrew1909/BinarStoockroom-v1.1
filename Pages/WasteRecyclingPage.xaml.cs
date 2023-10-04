@@ -47,8 +47,6 @@ namespace StockroomBinar.Pages
                 PlastType.Items.Add(a1.NameType.ToString());
             }
             PlastType.SelectedIndex = 0;
-
-
         }
         private void RecyclingPlast_Click(object sender, RoutedEventArgs e)
         {

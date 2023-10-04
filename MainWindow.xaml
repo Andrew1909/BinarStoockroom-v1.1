@@ -71,6 +71,13 @@
                                 <Image Source="Image/calculator.png"  Stretch="UniformToFill" Margin="-9"/>
                             </MenuItem.Icon>
                         </MenuItem>
+                        <!--<MenuItem Header="Профили" FontSize="20" Height="50" Foreground="White" Background="#2F3136" FontFamily="Candara Light">
+                            <MenuItem.Icon>
+                                <Image Source="Image/engravingPic.png"  Stretch="UniformToFill" Margin="-17"/>
+                            </MenuItem.Icon>
+                            <MenuItem Header="Профили для гравировки" x:Name="EngravingProfils" Click="EngravingProfils_Click"></MenuItem>
+                            <MenuItem Header="Профили для печати" x:Name="RecyclingProjils" Click="RecyclingProjils_Click"></MenuItem>
+                        </MenuItem>-->
                     </Menu>
                 </StackPanel>
             </Border>

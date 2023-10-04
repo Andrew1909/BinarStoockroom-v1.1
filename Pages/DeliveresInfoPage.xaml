@@ -31,12 +31,12 @@
             <DataGrid.Columns>
                     <DataGridTextColumn Header="Код детали" Binding="{Binding CodeDitals}"/>
                     <DataGridTextColumn Header="Кол-во готовых" Binding="{Binding ReadyDitals}"/>
-                <DataGridTextColumn Header="Кол-во для отправки" Binding="{Binding NecessaryCountDitals}"/>
-                <DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Кол-во для отправки" Binding="{Binding NecessaryCountDitals}"/>
+                    <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
-                                <Button x:Name="Edit" Content="Редактировать" Click="Edit_Click" FontSize="11" Height="20" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#2F3136"/>
+                                <!--<Button x:Name="Edit" Content="Редактировать" Click="Edit_Click" FontSize="11" Height="20" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="#2F3136"/>-->
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -34,7 +34,8 @@ namespace StockroomBinar.Pages
             DataText.Text = item.Date.Value.Date.ToShortDateString();
             ProcentText.Text = item.Status.ToString();
 
-            //заполняем заказ
+                                                                                                                                                                                                                //заполняем заказ из бд
+
             var CountPosition = Connect.bd.DeliveriesProducts.Where(p => p.IDInside == item.ID).Count();
             int SumReadyDitales = 0;
             int SumNeseseryDitales = 0;
@@ -45,11 +46,11 @@ namespace StockroomBinar.Pages
                 if (objA != 0)
                 {
                     var objB = Connect.bd.DeliveriesProducts.First(p => p.IDInside == item.ID && p.NumberPosition == j);
-                    var objC = Connect.bd.PlasticProducts.Where(p => p.ProductTypeID == objB.CodeDitals && p.EngravingStatus > 0).Count();//проверяем, в какой таблице находится деатль(платик или с произдовдства)
+                    var objC = Connect.bd.PlasticProducts.Where(p => p.ProductTypeID == objB.CodeDitals && p.EngravingStatus > 0).Count();                                                                      //проверяем, в какой таблице находится деатль(платик или с произдовдства)
                     var objD = Connect.bd.DitalesProduction.Where(p => p.CodeDitales == objB.CodeDitals && p.EngravingStatus > 0).Count();
                     if (objC != 0)
                     {
-                        //таблица с пластиковыми изделяим]
+                                                                                                                                                                                                                //из таблици с пластиковыми изделяим
                         var objE = Connect.bd.PlasticProducts.First(p => p.ProductTypeID == objB.CodeDitals &&p.EngravingStatus>0);
                         deliveriesProducts = objB;
                         plasticProducts = objE;
@@ -57,16 +58,15 @@ namespace StockroomBinar.Pages
                         {
                             for (int n = 0; n < deliveriesProducts.NecessaryCountDitals; n++)
                             {
-
-                                    if(deliveriesProducts.ReadyDitals == deliveriesProducts.NecessaryCountDitals)
+                                if(deliveriesProducts.ReadyDitals == deliveriesProducts.NecessaryCountDitals)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    for(int a = 0; a < objC; a++)
                                     {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        for(int a = 0; a < objC; a++)
-                                        {
-                                            var objR = Connect.bd.PlasticProducts.Where(p => p.ProductTypeID == objB.CodeDitals && p.EngravingStatus > 0).Count();
+                                        var objR = Connect.bd.PlasticProducts.Where(p => p.ProductTypeID == objB.CodeDitals && p.EngravingStatus > 0).Count();
                                         if (objR != 0)
                                         {
                                             objE = Connect.bd.PlasticProducts.First(p => p.ProductTypeID == objB.CodeDitals && p.EngravingStatus > 0);
@@ -76,17 +76,16 @@ namespace StockroomBinar.Pages
                                             plasticProducts.EngravingStatus = plasticProducts.EngravingStatus - 1;
                                             plasticProducts.CountOnStoock = plasticProducts.CountOnStoock - 1;
                                             Connect.bd.SaveChanges();
-                                        }
-                                           
-                                        }
-                                    } 
+                                        }   
+                                    }
+                                } 
                             }  
                         }
                     }
 
                     if (objD != 0)
                     {
-                        //таблица с изделиями с производства
+                                                                                                                                                                                                            //из таблици с изделиями с производства
                         var objE = Connect.bd.DitalesProduction.First(p => p.CodeDitales == objB.CodeDitals && p.EngravingStatus > 0);
                         deliveriesProducts = objB;
                         ditalesProduction = objE;
@@ -114,21 +113,28 @@ namespace StockroomBinar.Pages
                     }
                 }
             }
+
             deliveries = item;
-            var objK = Connect.bd.DeliveriesProducts.Where(p => p.IDInside == item.ID).Count();//количество позиций в поставке
+            SumNeseseryDitales = 0;
+            SumReadyDitales = 0;
+            var objK = Connect.bd.DeliveriesProducts.Where(p => p.IDInside == item.ID).Count();                                                                                                              //количество позиций в поставке
+            var objL = Connect.bd.DeliveriesProducts.First(p => p.IDInside == item.ID);
+            int ID = objL.ID;
+
+                                                                                                                                                                                                            // считаем провент готовности
             for (int j = 0; j < objK; j++)
             {
-                var objE = Connect.bd.DeliveriesProducts.First(p => p.IDInside == item.ID);
-                SumNeseseryDitales = SumNeseseryDitales + int.Parse(objE.NecessaryCountDitals.ToString());
-                SumReadyDitales = SumReadyDitales + int.Parse(objE.ReadyDitals.ToString());
+                var objE = Connect.bd.DeliveriesProducts.First(p => p.IDInside == item.ID &&p.ID==ID);
+                deliveriesProducts = objE;
+                SumNeseseryDitales = SumNeseseryDitales + int.Parse(deliveriesProducts.NecessaryCountDitals.ToString());
+                SumReadyDitales = SumReadyDitales + int.Parse(deliveriesProducts.ReadyDitals.ToString());
+                ID++;
             }
             if (SumNeseseryDitales > 0) deliveries.Status = (SumReadyDitales * 100) / SumNeseseryDitales;
             else deliveries.Status = 0;
             Connect.bd.SaveChanges();
-
             ProcentText.Text = item.Status.ToString();
-
-           DeliversInfoView.ItemsSource = Connect.bd.DeliveriesProducts.Where(p => p.IDInside == item.ID).ToList();
+            DeliversInfoView.ItemsSource = Connect.bd.DeliveriesProducts.Where(p => p.IDInside == item.ID).ToList();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -141,9 +147,9 @@ namespace StockroomBinar.Pages
 
         }
 
-        private void CloseDeliver_Click(object sender, RoutedEventArgs e)
+        private void CloseDeliver_Click(object sender, RoutedEventArgs e)                                                                                                                                     //закрыть поставку
         {
-            if (deliveries.Status == 100)
+            if (deliveries.Status == 100)                                                                                                                                                                     //если выполнена полнрстью
             {
                 if (MessageBox.Show($"Вы действительно хотите закрыть поставку {deliveries.СustomerТame} ?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
@@ -160,7 +166,7 @@ namespace StockroomBinar.Pages
                 }
                
             }
-            if (deliveries.Status < 100)
+            if (deliveries.Status < 100)                                                                                                                                                                     //если выполнена не полностью
             {
                 if (MessageBox.Show($"Вы действительно хотите закрыть поставку {deliveries.СustomerТame} раньше ?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {

@@ -256,6 +256,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EngravingProfilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -314,6 +318,9 @@
     </Compile>
     <Compile Include="Pages\EngravingPage.xaml.cs">
       <DependentUpon>EngravingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EngravingProfilPage.xaml.cs">
+      <DependentUpon>EngravingProfilPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -390,6 +397,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\plusplast.png" />
+    <Resource Include="Image\filePic.png" />
+    <Resource Include="Image\engravingPic.png" />
     <Resource Include="Image\icobinar.ico" />
     <Resource Include="Image\colocol.png" />
     <Resource Include="Image\postavki.png" />

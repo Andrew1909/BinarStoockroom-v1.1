@@ -88,5 +88,15 @@ namespace StockroomBinar
         {
             MyFrame.Navigate(new EngravingPage());
         }
+
+        private void EngravingProfils_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Navigate(new EngravingProfilPage());
+        }
+
+        private void RecyclingProjils_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

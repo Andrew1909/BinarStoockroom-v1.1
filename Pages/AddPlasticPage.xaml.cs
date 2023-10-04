@@ -39,7 +39,6 @@ namespace StockroomBinar.Pages
            
 
             var a = Connect.bd.ColorPlastic.Where(p => p.ID != 0).Count();
-
             AddColordNamePlastic.Items.Add("Выберите цвет платика");
             for (int j = 1; j <= int.Parse(a.ToString()); j++)
             {
@@ -52,7 +51,6 @@ namespace StockroomBinar.Pages
                 
             }
             AddColordNamePlastic.SelectedIndex = 0;
-
 
             var b = Connect.bd.PlasticType.Where(p => p.ID != 0).Count();
             AddTypePlastic.Items.Add("Выберите тип пластика");

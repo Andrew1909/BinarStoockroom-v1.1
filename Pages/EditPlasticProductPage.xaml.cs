@@ -36,7 +36,7 @@ namespace StockroomBinar.Pages
         public EditPlasticProductPage(PlasticProducts item)
         {
             InitializeComponent();
-           var a = Connect.bd.PlasticStor.Where(p => p.ID != 0).Count();
+            var a = Connect.bd.PlasticStor.Where(p => p.ID != 0).Count();
             maxIndex = a+1;
             AddColordNamePlastic.Items.Add("Выберите цвет платика");
             for (int j = 1; j <= int.Parse(a.ToString()); j++)

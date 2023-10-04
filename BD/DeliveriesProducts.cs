@@ -21,5 +21,14 @@ namespace StockroomBinar.BD
         public Nullable<int> NecessaryCountDitals { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<int> NumberPosition { get; set; }
+
+        public string StatusProd
+        {
+            get
+            {
+                if (Status == 0) return "A";
+                return "B";
+            }
+        }
     }
 }

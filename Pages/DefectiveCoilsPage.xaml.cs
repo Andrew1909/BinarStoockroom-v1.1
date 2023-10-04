@@ -50,7 +50,6 @@ namespace StockroomBinar.Pages
 
             if (a != null)
             {
-           
                 if (NameRecuclingPlast[98, 0] != null) MessageBox.Show("Выбрано максимальное количество элементов для одной утелизации!");
                 else
                 {

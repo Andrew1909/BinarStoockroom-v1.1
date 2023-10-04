@@ -104,10 +104,6 @@ namespace StockroomBinar.Pages
         char[] alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZqwertyuiopasdfghjklzxcvbnm".ToCharArray();
         private void AddCountDitalis_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            //for(int j = 0; j < alpha.Length; j++)
-            //{
-            //    if (AddCountDitalis.Text == alpha[j].ToString()) AddCountDitalis.Text = string.Empty;
-            //}
             Count.Text = AddCountDitalis.Text;
         }
 

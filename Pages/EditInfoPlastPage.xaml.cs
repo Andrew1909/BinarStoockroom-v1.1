@@ -60,7 +60,7 @@ namespace StockroomBinar.Pages
                     var objY = Connect.bd.RecyclingPlastic.Where(p => p.ColorNameRecucling == AddColordNamePlastic.Text && p.PlasticTypeRecucling == objA.PlasticType && p.ManufacturerRecucling==AddManufactPlastic.Text).Count();
                     var objY1 = Connect.bd.PlasticStor.First(p => p.ColorName == AddColordNamePlastic.Text && p.PlasticType == objA.PlasticType && p.Manufacturer==AddManufactPlastic.Text);
                     if (objY != 0)
-                        {
+                    {
                             var objY2 = Connect.bd.RecyclingPlastic.First(p => p.ColorNameRecucling == AddColordNamePlastic.Text && p.PlasticTypeRecucling == objA.PlasticType && p.ManufacturerRecucling == AddManufactPlastic.Text);
                             recyclingPlastic = objY2;
                             recyclingPlastic.WeightRecucling = recyclingPlastic.WeightRecucling + objY1.Weight;
@@ -70,19 +70,19 @@ namespace StockroomBinar.Pages
                             Connect.bd.SaveChanges();
                             MyFrame.Navigate(new PlasticStorage());
                     }
-                        else
-                        {
-                            recyclingPlastic.ID = objY1.ID;
-                            recyclingPlastic.ColorNameRecucling = objY1.ColorName;
-                            recyclingPlastic.PlasticTypeRecucling = objY1.PlasticType;
-                            recyclingPlastic.ManufacturerRecucling = objY1.Manufacturer;
-                            recyclingPlastic.WeightRecucling = objY1.Weight;
-                            recyclingPlastic.PlasticStatus = 0;
-                            Connect.bd.RecyclingPlastic.Add(recyclingPlastic);
-                            Connect.bd.SaveChanges();
-                            Connect.bd.PlasticStor.Remove(objY1);
-                            Connect.bd.SaveChanges();
-                            MyFrame.Navigate(new PlasticStorage());
+                    else
+                    {
+                        recyclingPlastic.ID = objY1.ID;
+                        recyclingPlastic.ColorNameRecucling = objY1.ColorName;
+                        recyclingPlastic.PlasticTypeRecucling = objY1.PlasticType;
+                        recyclingPlastic.ManufacturerRecucling = objY1.Manufacturer;
+                        recyclingPlastic.WeightRecucling = objY1.Weight;
+                        recyclingPlastic.PlasticStatus = 0;
+                        Connect.bd.RecyclingPlastic.Add(recyclingPlastic);
+                        Connect.bd.SaveChanges();
+                        Connect.bd.PlasticStor.Remove(objY1);
+                        Connect.bd.SaveChanges();
+                        MyFrame.Navigate(new PlasticStorage());
                     }
                 }
             }
